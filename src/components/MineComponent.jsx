@@ -6,10 +6,14 @@ import UserSearch from "./UserSearch"
 const MineComponent = () => {
     const [user,setUser] = useState([]);
     useEffect(()=>{
-      fetch("https://rjtnfvtkiyfclokqlqkk.supabase.co/rest/v1/Users").then(res => res.json()).then(data => setUser(data)).catch(error => console.error(`Error fetching ${error}`));
+      fetch("https://rjtnfvtkiyfclokqlqkk.supabase.co/rest/v1/Users",{
+        headers:{
+          'apikey': "sb_publishable_560O2fA7Bh02quGxqDYiUA_biZ2Zjwp"
+        }
+      }).then(res => res.json()).then(data => setUser(data)).catch(error => console.error(`Error fetching ${error}`));
     },[])
 
-
+    console.log(user)
   return (
 
   <>
