@@ -2,9 +2,11 @@ import { useEffect, useState } from "react"
 import Pagination from "./Pagination"
 import UserList from "./UserList"
 import UserSearch from "./UserSearch"
+import CreateEditFormModal from "./CreateEditFormModal"
 
 const MineComponent = () => {
     const [user,setUser] = useState([]);
+    const [showSaveUserModal,setShowSaveUserModal] = useState(false)
     useEffect(()=>{
       fetch("https://rjtnfvtkiyfclokqlqkk.supabase.co/rest/v1/Users",{
         headers:{
@@ -14,6 +16,13 @@ const MineComponent = () => {
     },[])
 
     console.log(user)
+
+    const handleUserAddOrEditModal = () =>{
+      setShowSaveUserModal(true)
+    }
+    const handlerAddOrEditUserModalClose = () =>{
+      setShowSaveUserModal(false)
+    }
   return (
 
   <>
@@ -22,7 +31,8 @@ const MineComponent = () => {
     <UserSearch/>
         <UserList user={user}/>
       {/* New user button  */}
-      <button className="btn-add btn">Add new user</button>
+      <button className="btn-add btn" onClick={()=>{handleUserAddOrEditModal()}}>Add new user</button>
+      {showSaveUserModal && <CreateEditFormModal onClose={handlerAddOrEditUserModalClose}/>}
     <Pagination/>
     </section>
 

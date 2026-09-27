@@ -1,5 +1,10 @@
 
-const CreateEditFormModal = () => {
+const CreateEditFormModal = ({onClose}) => {
+
+  const saveDataHandler = (event) =>{
+    event.preventDefault();
+    console.log("hendaling clicks")
+  }
   return (
   <>
 
@@ -10,7 +15,7 @@ const CreateEditFormModal = () => {
   <div class="user-container">
     <header class="headers">
       <h2>Edit User/Add User</h2>
-      <button class="btn close">
+      <button class="btn close" onClick={onClose}>
         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark"
           class="svg-inline--fa fa-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
           <path fill="currentColor"
@@ -81,7 +86,7 @@ const CreateEditFormModal = () => {
 
       <div class="form-row">
         <div class="form-group">
-          <label for="street">Street</label>
+          <label htmlFor="street">Street</label>
           <div class="input-wrapper">
             <span><i class="fa-solid fa-map"></i></span>
             <input id="street" name="street" type="text" />
@@ -96,8 +101,8 @@ const CreateEditFormModal = () => {
         </div>
       </div>
       <div id="form-actions">
-        <button id="action-save" class="btn" type="submit">Save</button>
-        <button id="action-cancel" class="btn" type="button">
+        <button id="action-save" class="btn" type="submit" onClick={saveDataHandler}>Save</button>
+        <button id="action-cancel" class="btn" type="button" onClick={onClose}>
           Cancel
         </button>
       </div>
