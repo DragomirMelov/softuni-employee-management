@@ -179,8 +179,7 @@ const UserList = () => {
           </tbody>
         </table>
       </div>
-      {/* New user button  */}
-      <button className="btn-add btn">Add new user</button>
+
   </>
   )
 }

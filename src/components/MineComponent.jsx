@@ -1,15 +1,24 @@
+import { useEffect, useState } from "react"
 import Pagination from "./Pagination"
 import UserList from "./UserList"
 import UserSearch from "./UserSearch"
 
 const MineComponent = () => {
+    const [user,setUser] = useState([]);
+    useEffect(()=>{
+      fetch("https://rjtnfvtkiyfclokqlqkk.supabase.co/rest/v1/Users").then(res => res.json()).then(data => setUser(data)).catch(error => console.error(`Error fetching ${error}`));
+    },[])
+
+
   return (
+
   <>
    <main className="main">
     <section className="card users-container">
     <UserSearch/>
-        <UserList/>
-
+        <UserList user={user}/>
+      {/* New user button  */}
+      <button className="btn-add btn">Add new user</button>
     <Pagination/>
     </section>
 
