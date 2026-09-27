@@ -1,4 +1,5 @@
 import React from 'react'
+import { fromIsoDate } from '../utils/dataTimesUtils'
 
 function UserListItem({
     id,
@@ -26,7 +27,7 @@ function UserListItem({
               <td>{lastName}</td>
               <td>{email}</td>
               <td>{phoneNumber}</td>
-              <td>{createdAt}</td>
+              <td>{fromIsoDate(createdAt)}</td>
               <td className="actions">
                 <button className="btn edit-btn" title="Edit">
                   <svg
