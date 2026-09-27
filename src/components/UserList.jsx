@@ -6,9 +6,9 @@ const UserList = ({user}) => {
         {/* Table component */}
       <div className="table-wrapper">
         {/* Overlap components  */}
-         <div class="loading-shade"> 
+         <div className="loading-shade"> 
         {/* Loading spinner  */}
-         <div class="spinner"></div> 
+         <div className="spinner"></div> 
          </div> 
         
         <table className="table">
